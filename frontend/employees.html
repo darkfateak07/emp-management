@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employees - Employee Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <h1 class="logo">Employee Management</h1>
+      <div class="navbar-right">
+        <span id="adminName" class="admin-name"></span>
+        <button onclick="logout()" class="btn-logout">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <aside class="sidebar">
+      <ul class="nav-menu">
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="employees.html" class="nav-link active">Employees</a></li>
+        <li><a href="departments.html" class="nav-link">Departments</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h2>Employee Management</h2>
+        <button class="btn-primary" onclick="openAddEmployeeModal()">+ Add Employee</button>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search employees by name..." onkeyup="searchEmployees()">
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Joining Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="employeesTable">
+          <tr>
+            <td colspan="6" class="text-center">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <!-- Add/Edit Employee Modal -->
+  <div id="employeeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeEmployeeModal()">&times;</span>
+      <h2 id="modalTitle">Add Employee</h2>
+      <form id="employeeForm">
+        <div class="form-group">
+          <label for="empName">Name:</label>
+          <input type="text" id="empName" required>
+        </div>
+        <div class="form-group">
+          <label for="empEmail">Email:</label>
+          <input type="email" id="empEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="empDepartment">Department:</label>
+          <select id="empDepartment" required>
+            <option value="">Select Department</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="empSalary">Salary:</label>
+          <input type="number" id="empSalary" required>
+        </div>
+        <div class="form-group">
+          <label for="empJoiningDate">Joining Date:</label>
+          <input type="date" id="empJoiningDate" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Save</button>
+          <button type="button" class="btn-secondary" onclick="closeEmployeeModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="deleteModal" class="modal">
+    <div class="modal-content modal-sm">
+      <h2>Confirm Delete</h2>
+      <p>Are you sure you want to delete this employee?</p>
+      <div class="form-actions">
+        <button class="btn-danger" onclick="confirmDelete()">Delete</button>
+        <button class="btn-secondary" onclick="closeDeleteModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/employees.js"></script>
+</body>
+</html>

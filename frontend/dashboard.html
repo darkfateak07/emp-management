@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Employee Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <h1 class="logo">Employee Management</h1>
+      <div class="navbar-right">
+        <span id="adminName" class="admin-name"></span>
+        <button onclick="logout()" class="btn-logout">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <aside class="sidebar">
+      <ul class="nav-menu">
+        <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+        <li><a href="employees.html" class="nav-link">Employees</a></li>
+        <li><a href="departments.html" class="nav-link">Departments</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h2>Dashboard</h2>
+      </div>
+
+      <div class="dashboard-cards">
+        <div class="card">
+          <h3>Total Employees</h3>
+          <p id="totalEmployees" class="card-value">0</p>
+        </div>
+        <div class="card">
+          <h3>Total Departments</h3>
+          <p id="totalDepartments" class="card-value">0</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h3>Department-wise Employee Count</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Department</th>
+              <th>Employee Count</th>
+            </tr>
+          </thead>
+          <tbody id="deptEmployeeTable">
+            <tr>
+              <td colspan="2" class="text-center">Loading...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h3>Recent Employees</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Department</th>
+              <th>Salary</th>
+              <th>Joining Date</th>
+            </tr>
+          </thead>
+          <tbody id="recentEmployeesTable">
+            <tr>
+              <td colspan="5" class="text-center">Loading...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
